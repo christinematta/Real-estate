@@ -1,26 +1,27 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <div class="login-form">
+    <div class="col-7 mx-5 my-2">
+      <%= image_tag("login/login.avif", class: "login-img") %>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class="col-5 form-signin">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <h1 class="h3 mb-3 fw-normal">Welcome Back</h1>
+        <div class="form-floating mb-3">
+          <%= f.email_field :email, autofocus: true, class:"form-control",id:"floatingInput", placeholder:"Email address" %>
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating mb-3 ">
+          <%= f.password_field :password, autocomplete: "current-password", class:"form-control", id:"floatingPassword", placeholder:"Password" %>
+          <label for="floatingPassword">Password</label>
+        </div>
+        <div class="form-check text-start my-3">
+          <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Remember me
+          </label>
+        </div>
+        <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
