@@ -12,9 +12,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   </head>
   <body>
-    <header>
+    <% if "dashboard".include?(controller.controller_name) %>
+      <header>
+        <%= render "shared/dashboard" %>
+      </header>
+    <% else %>
       <%= render "shared/navbar" %>
-    </header>
+    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
