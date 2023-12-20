@@ -15,7 +15,7 @@ gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 
 gem "devise"
-gem 'simple_form'
+
 gem 'bootstrap', '~> 5.3.2'
 gem 'cssbundling-rails'
 gem "sassc-rails"
