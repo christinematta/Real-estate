@@ -15,16 +15,25 @@
     <div class="flashes">
       <%= render "shared/flashes" %>
     </div>
-    <% if "dashboard".include?(controller.controller_name) %>
+    <% if ["dashboard","properties"].include?(controller.controller_name) %>
       <header>
-        <%= render "shared/dashboard" %>
+        <%= render "shared/nav-dashboard" %>
+        <div class="container-fluid">
+          <div style="margin-top:50px">
+          <%= render "shared/sidebar" %>
+          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+              <%= yield %>
+            </div>
+          </main>
+        </div>
       </header>
     <% else %>
       <%= render "shared/navbar" %>
+      <div style="margin-top:50px">
+        <%= yield %>
+      </div>
     <% end %>
-    <div style="margin-top:50px">
-      <%= yield %>
-    </div>
     <%= render "shared/footer" %>
   </body>
 </html>
