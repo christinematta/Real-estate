@@ -7,6 +7,8 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag 'rails-ujs', 'data-turbolinks-track': 'reload' %>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -21,7 +23,7 @@
         <div class="container-fluid">
           <div style="margin-top:50px">
           <%= render "shared/sidebar" %>
-          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-5">
 
               <%= yield %>
             </div>

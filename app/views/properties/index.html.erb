@@ -1,14 +1,35 @@
-<p style="color: green"><%= notice %></p>
-
+<section >
+<div class="prop-header">
 <h1>Properties</h1>
-
-<div id="properties">
-  <% @properties.each do |property| %>
-    <%= render property %>
-    <p>
-      <%= link_to "Show this property", property %>
-    </p>
-  <% end %>
+<p class="btn btn-success" style="color:white"><%= link_to "New property", new_property_path %></p>
 </div>
 
-<%= link_to "New property", new_property_path %>
+<table class="table table-hover ">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Price</th>
+      <th scope="col">Rooms</th>
+      <th scope="col">Bathrooms</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @properties.each_with_index do |property,index| %>
+      <tr>
+        <td><%= index +1 %></td>
+        <th scope="row"><%= link_to property.name, property %></th>
+        <td><%= property.address %></td>
+        <td>€ <%= property.price %></td>
+        <td><%= property.rooms %></td>
+        <td><%= property.bathrooms %></td>
+        <td><%= link_to "Edit", edit_property_path(property)%></td>
+        <td><%=link_to "Destroy",property, method: :delete, data: {confirm: "are you sure to delete #{property.name} property?"} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</section>
